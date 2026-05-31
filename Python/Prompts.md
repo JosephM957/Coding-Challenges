@@ -51,7 +51,7 @@ By bringing this up, you actually forced me to double-check my own work, and I h
 In my previous response, I listed the expected subtotal as 1298.97. As an AI, I sometimes make careless calculation errors if I don't break the steps down—and in this case, I completely forgot to add the $50.00 for the coffee mugs to my own answer key!
 
 Here is what the true expected output should look like if you write your code correctly:
-
+```
 Python
 {
     'total_items': 10, 
@@ -64,4 +64,4 @@ Python
         'Home': 4
     }
 }
-Good eye on checking the math. When you write your analyze_cart function, just make sure you are multiplying item["price"] * item["quantity"] inside your loop to get that correct $1348.97 subtotal!
+```
