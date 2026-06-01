@@ -55,7 +55,6 @@ Test Case 3: N is larger than unique words
 C#
 string text = "Apple apple banana";
 int topN = 10;
-```
 // Expected Output: 
 // Key: "apple", Value: 2
 // Key: "banana", Value: 1
