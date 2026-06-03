@@ -1,0 +1,78 @@
+<!--CURRENTLY IN PROGRESS NOT COMPLETED YET-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #checkboxes
+        {
+            align-items: center;
+            background-color: aqua;
+            color:rgb(112, 9, 9);
+            border-radius: 10%;
+
+        }
+        #slider
+        {
+            border-radius: 10%;
+            background-color: chartreuse;
+            color:blueviolet;
+        }
+        .button
+        {
+            background-color: cadetblue;
+            color: orange;
+            border-radius: 50%;
+        }
+        #displayArea 
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width: 600px){
+            form
+            {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div id="slider">
+            <input type="range" min="8" max="32" id="length" name="length">
+            <p>Length: <span id="displayLength"></span></p>
+        </div>
+        <div id="checkboxes">
+            <input type="checkbox" id="upper" name="upper" value="Uppercase">
+            <label for="upper">Uppercase Letters</label><br>
+            <input type="checkbox" id="lower" name="lower" value="Lowercase">
+            <label for="upper">Lowercase Letters</label><br>
+            <input type="checkbox" id="num" name="num" value="Numbers">
+            <label for="num">Numbers</label><br>
+            <input type="checkbox" id="symbol" name="symbol" value="Symbols">
+            <label for="num">Symbols</label>
+        </div>
+        <input type="button" value="Generate Password" class="button" onclick="generatePassword()">
+    </form>
+<div id="displayArea"></div>
+    <script>
+        var Length = document.getElementById("length");
+        Length.oninput = function()
+        {
+            document.getElementById("displayLength").innerHTML = this.value;
+        }
+        function generatePassword()
+        {
+            outputStr = "Your password is: "
+            document.getElementById("displayArea").innerHTML = outputStr
+        }
+    </script>
+</body>
+</html>
