@@ -33,8 +33,6 @@ Layout: Use Flexbox or CSS Grid to center the generator on the screen and neatly
 
 Aesthetics: Give it a modern card look (think rounded corners, a subtle box-shadow, and a clean color palette).
 
-Interactive States: Add :hover, :focus, and :active states to the button, checkboxes, and slider so the user feels the interactivity.
-
 Responsiveness: Ensure the generator looks good on both a desktop monitor and a mobile phone screen.
 
 ### 3. JavaScript (Logic & DOM Manipulation)
