@@ -1,4 +1,3 @@
-<!--CURRENTLY IN PROGRESS NOT COMPLETED YET-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,10 +34,18 @@
             justify-content: center;
             align-items: center;
         }
-        @media (max-width: 600px){
+        @media (max-width: 500px){
             form
             {
                 display: flex;
+            }
+            #displayArea 
+            {
+                display: flex;
+            }
+            .button 
+            {
+                max-width: 100%;
             }
         }
     </style>
@@ -46,18 +53,18 @@
 <body>
     <form>
         <div id="slider">
-            <input type="range" min="8" max="32" id="length" name="length">
+            <input type="range" min="8" max="32" id="length" value="8" name="length">
             <p>Length: <span id="displayLength"></span></p>
         </div>
         <div id="checkboxes">
             <input type="checkbox" id="upper" name="upper" value="Uppercase">
-            <label for="upper">Uppercase Letters</label><br>
+            <label for="upper">Include Uppercase Letters</label><br>
             <input type="checkbox" id="lower" name="lower" value="Lowercase">
-            <label for="upper">Lowercase Letters</label><br>
+            <label for="upper">Include Lowercase Letters</label><br>
             <input type="checkbox" id="num" name="num" value="Numbers">
-            <label for="num">Numbers</label><br>
+            <label for="num">Include Numbers</label><br>
             <input type="checkbox" id="symbol" name="symbol" value="Symbols">
-            <label for="num">Symbols</label>
+            <label for="symbol">Include Symbols</label>
         </div>
         <input type="button" value="Generate Password" class="button" onclick="generatePassword()">
     </form>
@@ -70,8 +77,46 @@
         }
         function generatePassword()
         {
+            var upper = document.getElementById("upper").checked
+            var lower = document.getElementById("lower").checked
+            var num = document.getElementById("num").checked
+            var symbol = document.getElementById("symbol").checked
+            var length = document.getElementById("length").value
+            var characters = []
+            var numCharacters = 0;
             outputStr = "Your password is: "
+            if (upper == false && lower == false && num == false && symbol == false)
+            {
+                outputStr = "Error no valid characters for password";
+            }
+            if (upper == true)
+            {
+                characters.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+            }
+            if (lower == true)
+            {
+                characters.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
+            }
+            if (num == true)
+            {
+                characters.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+            }
+            if (symbol == true)
+            {
+                characters.push("@", "!", "#", "%", "$", "^", "&", "*", "(", ")", "/", ",", ".", "?", "<", ">", "-", "+", "=", "_")
+            }
+            var i = 0;
+            while (i <= length)
+            {
+                outputStr += characters[randomize(characters.length)]
+                i += 1;
+            }
+            characters = []
             document.getElementById("displayArea").innerHTML = outputStr
+        }
+        function randomize(max)
+        {
+            return Math.floor(Math.random() * max);
         }
     </script>
 </body>
